@@ -2,4 +2,4 @@
 A Reddit bot in the workings...
 
 ## TODO List
-- [ ] Cleary specify functionalities
+- [ ] Clearly specify functionalities
