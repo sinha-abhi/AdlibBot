@@ -8,7 +8,7 @@ A Reddit bot under construction...
 #### ConfigLoader
 `ConfigLoader` is in module `loader`.
 Use this class to generate an instance of `praw.Reddit`. Files are loaded
-from a config file (whose default location is `res/bot.ini'.
+from a config file (whose default location is `res/bot.ini`).
 
 ##### Example ConfigLoader
 ###### Spawning a Reddit instance with login verification 
@@ -45,4 +45,4 @@ Reddit instance.
 *WARNING*: We have not verified, in this case, whether PRAW was able to
 establish a connection with Reddit or not. If the connection failed, 
 then a prawcore.expceptions.OAuthException will be raised. Therefore, the
-above method presented in the first example is recommended.
+method presented in the first example is recommended.
