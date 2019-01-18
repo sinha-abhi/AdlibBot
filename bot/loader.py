@@ -3,6 +3,7 @@ import praw, prawcore
 import configparser
 import os
 
+
 # Load information from config files
 class ConfigLoader(object):
 
@@ -29,7 +30,9 @@ class ConfigLoader(object):
                               username = self.config["username"],
                               password = self.config["password"])
         if verify is not None:
-            return self.__verify_login()
+            return (self.reddit, self.__verify_login())
+        else:
+            return self.reddit
 
     def __get_cfg_path(self, loc=None):
         if loc is None:
@@ -50,9 +53,3 @@ class ConfigLoader(object):
         except prawcore.exceptions.OAuthException:
             return False 
 
-    
-
-if __name__ == "__main__":
-    e = ConfigLoader()
-    e.load_config()
-    print(e.spawn_reddit_inst(True))
