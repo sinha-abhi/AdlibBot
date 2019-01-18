@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 import praw, prawcore
 import configparser
-
+import os
 
 # Load information from config files
 class ConfigLoader(object):
 
-    def __init__(self):
+    def __init__(self, loc=None):
         self.__cfg = configparser.ConfigParser()
         
-        BOT_CFG = "../res/bot.ini"
-        if not self.__cfg.read(BOT_CFG):
-            print("Configuration file", BOT_CFG, "not found.")
-            raise FileNotFoundError(BOT_CFG)
+        CFG_PATH = self.__get_cfg_path(loc)
+        if not self.__cfg.read(CFG_PATH):
+            print("Configuration file", CFG_PATH, "not found.")
+            raise FileNotFoundError(CFG_PATH)
 
         self.__keys = ["subfile", "logfile", "client_id", "client_secret",
                  "user_agent", "username", "password"]
@@ -30,7 +30,19 @@ class ConfigLoader(object):
                               password = self.config["password"])
         if verify is not None:
             return self.__verify_login()
-                
+
+    def __get_cfg_path(self, loc=None):
+        if loc is None:
+            loc = "res/bot.ini"
+        exec_path = os.path.dirname(os.path.realpath(__file__))
+        return os.path.join(os.path.split(exec_path)[0], loc)
+
+    def __read_cfg_opt(self, cfg_parser, sect, opt):
+        try:
+            return cfg_parser.get(sect, opt)
+        except:
+            print("Unable to find option", opt, "in section", sect)
+            
     def __verify_login(self):
         try:
             self.reddit.user.me()
@@ -38,12 +50,7 @@ class ConfigLoader(object):
         except prawcore.exceptions.OAuthException:
             return False 
 
-    def __read_cfg_opt(self, cfg_parser, sect, opt):
-        try:
-            return cfg_parser.get(sect, opt)
-        except:
-            print("Unable to find option", opt, "in section", sect)
-
+    
 
 if __name__ == "__main__":
     e = ConfigLoader()

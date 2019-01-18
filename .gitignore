@@ -5,3 +5,4 @@ config.json
 test_abhi.py
 __pycache__
 requirements.txt
+bot.ini
