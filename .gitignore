@@ -1,4 +1,7 @@
 info.txt
 praw.ini
-
+*.swp
 config.json
+test_abhi.py
+__pycache__
+requirements.txt
