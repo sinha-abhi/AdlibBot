@@ -10,7 +10,7 @@ A Reddit bot under construction...
 Use this class to generate an instance of `praw.Reddit`. Files are loaded
 from a config file (whose default location is `res/bot.ini`).
 
-##### Example ConfigLoader
+##### Examples
 ###### Spawning a Reddit instance with login verification 
 ```python
 from loader import ConfigLoader
@@ -29,7 +29,7 @@ else:
 In the case of `verify=True`, `spawn_reddit_inst()` returns a tuple containing
 a Reddit instance, and boolean indicating sucess.
 
-###### Example without login verification 
+###### Spawning a Reddit instance without login verification 
 ```python
 from loader import ConfigLoader
 
@@ -42,7 +42,7 @@ reddit = loader.spawn_reddit_inst(verify=False)
 In the case of `verify=False`, `spawn_reddit_inst()` returns a
 Reddit instance.
 
-*WARNING*: We have not verified, in this case, whether PRAW was able to
+*WARNING*: In this case, we have not verified whether PRAW was able to
 establish a connection with Reddit or not. If the connection failed, 
-then a prawcore.expceptions.OAuthException will be raised. Therefore, the
-method presented in the first example is recommended.
+then a prawcore.expceptions.OAuthException will be raised. The method
+presented in the first example is recommended.
