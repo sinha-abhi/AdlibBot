@@ -1,6 +1,8 @@
-info.txt
 praw.ini
 *.swp
 config.json
 __pycache__
 bot.ini
+
+# ignore virtualenv
+env/
