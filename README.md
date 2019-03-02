@@ -44,7 +44,7 @@ reddit = loader.spawn_reddit_inst(verify=False)
 In the case of `verify=False`, `spawn_reddit_inst()` returns a
 Reddit instance.
 
-*WARNING*: In this case, we have not verified whether PRAW was able to
+In this case, we have not verified whether PRAW was able to
 establish a connection with Reddit or not. If the connection failed, 
-then a prawcore.expceptions.OAuthException will be raised. The method
-presented in the first example is recommended.
+then a `prawcore.expceptions.OAuthException` will be raised. The default option
+for verify is `False`.
