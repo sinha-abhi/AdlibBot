@@ -1,0 +1,26 @@
+# Sample YAML file for the Adlib Bot
+#
+#   author: Abhi Sinha
+---
+# Login information
+login:
+   client_id: "id"
+   client_secret: "secret"
+   user_agent: "user_agent"
+   username: "username" 
+   password: "password" 
+
+# Logging information
+logging:
+    format: "[%(levelname)s] %(asctime)s: %(filename)s - %(message)s"
+    # DEBUG, INFO, WARNING, ERROR, CRITICAL
+    level: "DEBUG"
+    location: "location"
+    fileformat: "frmt"
+    filename: "filename"
+
+# List of subreddits
+subreddits:
+    - askreddit
+    - funny
+    - gaming

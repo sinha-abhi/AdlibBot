@@ -1,8 +1,11 @@
 praw.ini
 *.swp
-config.json
 __pycache__
-bot.ini
+bot.yaml
 
-# ignore virtualenv
+# log files and virtualenv
+bot/logs/
 env/
+
+# local testing files
+bot/test_driver.py
